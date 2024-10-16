@@ -84,12 +84,15 @@ class _EventPageState extends State<EventPage> {
                     border: Border.all(color: Colors.grey),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: _imagePath != null
+                  child: _imagePath != null && _imagePath!.isNotEmpty
                       ? Image.file(
                     File(_imagePath!),
                     fit: BoxFit.cover,
                   )
-                      : Center(child: Text('Tap to select an image')),
+                      : Image.asset(
+                    'assets/images/default_event_image.png', // Default image from assets
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               SizedBox(height: 16),
